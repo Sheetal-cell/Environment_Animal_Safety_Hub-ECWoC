@@ -1,0 +1,81 @@
+/* Kids Quiz Section */
+.kids-quiz-section {
+    padding: 70px 20px;
+    background-color: #97f0af;  /* light green soft background */
+}
+
+.kids-quiz-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Text Area */
+.quiz-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.quiz-text h2 {
+    font-size: 36px;
+    color: #2e8b57;
+    margin-bottom: 15px;
+}
+
+.quiz-text p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Button */
+.quiz-btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    background-color: #ff9800;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.quiz-btn:hover {
+    background-color: #ffa726;
+    transform: scale(1.05);
+}
+
+/* Quiz Image */
+.quiz-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.quiz-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
+}
+
+/* Hover Zoom Effect */
+.quiz-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quiz-text h2 {
+        font-size: 28px;
+    }
+
+    .quiz-text p {
+        font-size: 16px;
+    }
+}
