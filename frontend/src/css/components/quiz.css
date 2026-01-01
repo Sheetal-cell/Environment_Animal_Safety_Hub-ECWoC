@@ -65,7 +65,7 @@
 
 .quiz-btn:hover {
     background-color: var(--quiz-btn-hover);
-.quiz-btn:hover,
+}
 .quiz-btn:focus-visible {
     background-color: #ffa726;
     transform: scale(1.05);
@@ -110,7 +110,7 @@
         font-size: 16px;
     }
 }
-}
+
 
 @media (max-width: 720px){
     .quiz-btn{
