@@ -83,6 +83,21 @@
   z-index: 10000;
   transition: width 0.1s ease;
 }
+/* Reading Time Estimator */
+/* Reading Time Estimator */
+.reading-time {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px 16px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+
 
 
     </style>
@@ -129,6 +144,11 @@
             <li><a href="/frontend/src/pages/Signup.html" class="btn-signup">Sign Up</a></li>
         </ul>
     </nav>
+    <!-- Reading Time -->
+<div id="readingTime" class="reading-time">
+  📖 Estimated reading time: <span id="timeValue"></span>
+</div>
+
 
     <!-- Hero Section -->
 
@@ -398,6 +418,20 @@
          });
 
     </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const text = document.body.innerText;
+  const words = text.trim().split(/\s+/).length;
+
+  const wordsPerMinute = 200;
+  const minutes = Math.ceil(words / wordsPerMinute);
+
+  document.getElementById("timeValue").textContent =
+    minutes <= 1 ? "1 minute" : minutes + " minutes";
+});
+</script>
+
 
 
 </body>
