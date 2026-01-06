@@ -142,10 +142,11 @@ body {
   --text-primary: #1e7f5c;
   --text-secondary: #555555;
   --background: #f3fdf8;
+  --border-color: #1e7f5c;
 }
 
 html[data-theme="dark"] {
-  --primary-color: #4cd137;
+  --primary-color: #3bac29;
   --primary-hover: #2ecc71;
   --card-bg: #1b1b1b;
   --sidebar-bg: #111;
@@ -155,6 +156,7 @@ html[data-theme="dark"] {
   --text-primary: #ffffff;
   --text-secondary: #bbbbbb;
   --background: #121212;
+  --border-color: #3bac29;
 }
 
 
@@ -606,5 +608,199 @@ body.page.dashboard {
   }
   .post-card {
     max-width: 100%;
+  }
+}
+
+/* =====================
+   CHAT PAGE STYLES
+===================== */
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.chat-header .input.chat-search {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.chat-header i {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: color 0.2s;
+}
+
+.chat-header i:hover {
+  color: var(--primary-hover);
+}
+
+/* Chat Window */
+.chat-window {
+  flex: 1;
+  background-color: var(--background);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 70%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  word-break: break-word;
+}
+
+.chat-message.self {
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.chat-message img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+/* No chat message */
+.no-chat-msg {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Chat Input Bar */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.chat-input-bar .chat-input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  width: 500px;
+  border: 1px solid #ccc;
+}
+
+.chat-input-bar .send-chat-btn {
+  padding: 10px 15px;
+  border-radius: 12px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width:100px;
+  transition: background 0.2s;
+}
+
+.chat-input-bar .send-chat-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* =====================
+   RIGHT PANEL FRIEND LIST
+===================== */
+.right-panel {
+  width: 300px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--card-bg);
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+}
+
+.right-panel .panel-section {
+  margin-bottom: 20px;
+}
+
+.right-panel .friend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.right-panel .friend-item img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.right-panel .friend-item span {
+  flex: 1;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.right-panel .chat-now-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.right-panel .chat-now-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 1024px) {
+  .right-panel {
+    width: 200px;
+  }
+  .chat-window,
+  .chat-input-bar {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .right-panel {
+    display: none; /* hide friends panel on mobile */
+  }
+  .chat-window,
+  .chat-input-bar {
+    max-width: 100%;
+    margin: 0 10px;
   }
 }
