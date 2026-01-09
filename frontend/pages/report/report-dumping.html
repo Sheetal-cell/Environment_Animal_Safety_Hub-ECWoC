@@ -1,0 +1,82 @@
+<!-- report-dumping.html -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Report Waste Dumping | EcoLife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="/envirnoment-logo.png">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../../css/pages/report/report-dumping.css" />
+  <link rel="stylesheet" href="../../css/components/footer.css" />
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>🚯 Report Waste Dumping</h1>
+    <p>
+      Help us protect nature by reporting illegal waste dumping.
+      Your small action can make a big environmental impact 🌍
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="card">
+
+    <div class="info">
+      <h3>Why report waste dumping?</h3>
+      <p>
+        Illegal waste dumping pollutes land, water, and harms animals.
+        Reporting such activities helps authorities take action and
+        keeps our environment clean and safe.
+      </p>
+    </div>
+
+    <form id="reportForm">
+      <div>
+        <label>📍 Location of Dumping</label>
+        <input type="text" placeholder="Enter location" required>
+      </div>
+
+      <div>
+        <label>📝 Description</label>
+        <textarea placeholder="Describe the issue in detail" required></textarea>
+      </div>
+
+      <div>
+        <label>📷 Upload Image (optional)</label>
+        <input type="file" accept="image/*">
+      </div>
+
+      <button type="submit">Submit Report</button>
+    </form>
+
+    <div class="success" id="successMsg">
+      ✅ Thank you! Your report has been submitted successfully.
+    </div>
+
+    <!-- BACK HOME -->
+    <div class="back-home-wrapper">
+      <button class="back-home-btn" onclick="window.location.href='../../index.html'">
+        ⬅ Back to Home
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+    
+
+  <script src="../../js/components/navbar-loader.js"></script>
+  <script src="../../js/components/footer-loader.js"></script>
+  <script src="../../js/pages/report/report-dumping.js"></script>
+</body>
+</html>
