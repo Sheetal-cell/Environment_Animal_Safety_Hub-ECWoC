@@ -1,3 +1,27 @@
+/* ===== Parallax Effect for Hero Background ===== */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-elements {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Enable smooth parallax scrolling */
+.hero-bg-elements.parallax-active {
+  transform: translateY(var(--parallax-offset, 0));
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-elements {
+    transition: none;
+    transform: none !important;
+  }
+}
+
 .dict-card {
   background: #ffffff;
   padding: 20px;
