@@ -12,7 +12,20 @@
   <meta name="description"
     content="Join EcoLife to protect animals, save the environment, and create a greener future for all." />
 
-  <!-- CSS Files -->
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/global/variables.css" as="style">
+  <link rel="preload" href="css/global/utilities.css" as="style">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/components/navbar.css" as="style">
+  <link rel="preload" href="js/global/performance-monitor.js" as="script">
+  <link rel="preload" href="js/global/optimized-image-loader.js" as="script">
+
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+  <!-- CSS Files (minified in place) -->
   <link rel="stylesheet" href="css/global/variables.css" />
   <link rel="stylesheet" href="css/global/utilities.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -1395,7 +1408,11 @@
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Scripts (optimized loading) -->
+  <!-- Performance monitoring (load first) -->
+  <script src="js/global/performance-monitor.js"></script>
+  <script src="js/global/optimized-image-loader.js"></script>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js"></script>
   <script src="js/pages/animal-safety/adoption.js"></script>
