@@ -72,6 +72,18 @@
                 <div class="timer-badge">⏳ <span id="time">00:00</span></div>
                 <div class="progress-text" id="progressText">Question 1/10</div>
             </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-metrics">
+                    <span id="timeSpent">Time Spent: 0s</span> | <span id="questionsCompleted">Completed: 0/10</span>
+                </div>
+            </div>
+            <div class="pause-resume-buttons">
+                <button class="btn-secondary" id="pauseBtn" onclick="pauseQuiz()">⏸️ Pause</button>
+                <button class="btn-secondary" id="resumeBtn" onclick="resumeQuiz()" style="display:none;">▶️ Resume</button>
+            </div>
             <div class="question-box">
                 <h3 class="question" id="question">Loading...</h3>
             </div>

@@ -39,6 +39,9 @@ function createFloatingElements() {
 // Game Logic
 let quiz = [], index = 0, score = 0, seconds = 0, timer;
 let answers = [];
+let startTime = 0;
+let questionTimestamps = [];
+let paused = false;
 
 // Progress Tracking
 const PROGRESS_KEY = 'quizProgress';
@@ -49,7 +52,10 @@ function saveProgress() {
         answers: answers,
         score: score,
         remainingTime: seconds,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        startTime: startTime,
+        questionTimestamps: questionTimestamps,
+        quizData: quiz
     };
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
 }
@@ -62,6 +68,9 @@ function loadProgress() {
         answers = progress.answers || [];
         score = progress.score || 0;
         seconds = progress.remainingTime || 0;
+        startTime = progress.startTime || Date.now();
+        questionTimestamps = progress.questionTimestamps || [];
+        quiz = progress.quizData || [];
         return true;
     }
     return false;
@@ -91,13 +100,16 @@ function startQuiz() {
     answers = new Array(quiz.length).fill(null);
     index = 0;
     score = 0;
-    
+    startTime = Date.now();
+    questionTimestamps = [];
+    paused = false;
+
     startScreen.style.display = "none";
     quizScreen.style.display = "block";
-    
+
     // Add entrance animation to quiz screen
     quizScreen.classList.add('slide-up');
-    
+
     loadQuestion();
     startTimer();
 }
@@ -176,18 +188,41 @@ function nextQuestion() {
         const btn = document.querySelector('.nextBtn');
         btn.classList.add('shake-it');
         setTimeout(() => btn.classList.remove('shake-it'), 300);
-        return; 
+        return;
     }
-    
+
+    // Record timestamp for this question
+    questionTimestamps[index] = Date.now();
+
     // Check answer immediately to calculate score
     if (answers[index] === quiz[index].a) score++;
-    
+
+    // Save progress
+    saveProgress();
+
     index++;
     if(index < quiz.length) {
         loadQuestion();
     } else {
         showResult();
     }
+}
+
+function pauseQuiz() {
+    if (paused) return;
+    paused = true;
+    clearInterval(timer);
+    saveProgress();
+    document.getElementById('pauseBtn').style.display = 'none';
+    document.getElementById('resumeBtn').style.display = 'inline-block';
+}
+
+function resumeQuiz() {
+    if (!paused) return;
+    paused = false;
+    startTimer();
+    document.getElementById('pauseBtn').style.display = 'inline-block';
+    document.getElementById('resumeBtn').style.display = 'none';
 }
 
 function showResult() {
