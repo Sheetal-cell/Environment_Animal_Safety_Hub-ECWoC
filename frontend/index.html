@@ -79,27 +79,31 @@
 
   <!-- Skip Navigation Link for Keyboard Users -->
   <a href="#main-content" class="skip-link" id="skip-to-main">Skip to main content</a>
+  
+  <!-- Live Regions for Screen Readers -->
+  <div aria-live="polite" aria-atomic="true" class="live-region" id="status-messages"></div>
+  <div aria-live="assertive" aria-atomic="true" class="live-region" id="error-messages"></div>
 
   <!-- 🌤️ Background Animations -->
-  <div class="eco-sky">
+  <div class="eco-sky" aria-hidden="true">
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
     <div class="cloud cloud3"></div>
   </div>
 
   <!-- 🕊️ Birds -->
-  <div class="birds-layer"></div>
+  <div class="birds-layer" aria-hidden="true"></div>
 
   <!-- 🌧️ Rain -->
-  <div class="rain-layer"></div>
+  <div class="rain-layer" aria-hidden="true"></div>
 
   <!-- 🍃 Floating Leaves -->
-  <div class="leaves-layer"></div>
+  <div class="leaves-layer" aria-hidden="true"></div>
 
   <!-- 🌞 Sun Glow -->
-  <div class="sun-glow"></div>
+  <div class="sun-glow" aria-hidden="true"></div>
 
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
   <!-- Navbar -->
   <div id="navbar-container"></div>
   <!-- 🌗 Dark / Light Mode Toggle -->
@@ -107,9 +111,11 @@
   id="themeToggle" 
   class="theme-toggle" 
   aria-label="Toggle dark and light mode"
+  aria-pressed="false"
   title="Toggle Dark / Light Mode"
 >
-  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-moon" aria-hidden="true"></i>
+  <span class="sr-only">Current theme: Light mode</span>
 </button>
 
 
@@ -117,9 +123,9 @@
   <main id="main-content" role="main">
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section" aria-label="Welcome to EcoLife">
+    <section id="home" class="hero-section" aria-labelledby="hero-title" role="banner">
       <!-- Animated Background Elements -->
-      <div class="hero-bg-elements">
+      <div class="hero-bg-elements" aria-hidden="true">
         <div class="floating-element leaf1">
           <i class="fa-solid fa-leaf"></i>
         </div>
@@ -143,18 +149,18 @@
       </div>
 
       <!-- Particle Effect -->
-      <div class="particles" id="particles"></div>
+      <div class="particles" id="particles" aria-hidden="true"></div>
 
       <div class="hero-container">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-          <span class="hero-badge">
-            <i class="fa-solid fa-globe"></i> Join 50,000+ Eco Warriors
+          <span class="hero-badge" role="status">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i> Join 50,000+ Eco Warriors
           </span>
           <!-- Page View Counter -->
-          <span class="hero-badge page-view-counter" id="page-view-counter">
-            <i class="fa-solid fa-eye"></i> <span id="page-view-count">0</span> Page Views
+          <span class="hero-badge page-view-counter" id="page-view-counter" role="status" aria-live="polite">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i> <span id="page-view-count">0</span> Page Views
           </span>
-          <h1 class="hero-title">
+          <h1 class="hero-title" id="hero-title">
             Protect Our <span class="gradient-text">Planet</span> &
             <span class="gradient-text">Animals</span>
           </h1>
@@ -163,40 +169,44 @@
             create a sustainable future for generations to come.
           </p>
           <!-- Live Clock Display -->
-    <div class="live-clock" id="live-clock">
-      <i class="fas fa-clock"></i>
-      <span id="clock-time">00:00:00</span>
+    <div class="live-clock" id="live-clock" role="timer" aria-live="off">
+      <i class="fas fa-clock" aria-hidden="true"></i>
+      <span id="clock-time" aria-label="Current time">00:00:00</span>
     </div>
 
     <!-- Search Bar -->
-    <div class="search-container">
+    <div class="search-container" role="search">
       <form class="search-form" id="searchForm">
-        <input type="text" id="searchInput" placeholder="Search endangered animals, plant care, quizzes..." autocomplete="off">
-        <button type="submit" class="search-btn">
-          <i class="fas fa-search"></i>
+        <label for="searchInput" class="sr-only">Search EcoLife content</label>
+        <input type="text" id="searchInput" placeholder="Search endangered animals, plant care, quizzes..." autocomplete="off" aria-describedby="search-help">
+        <div id="search-help" class="sr-only">Search for information about animals, plants, quizzes, and environmental topics</div>
+        <button type="submit" class="search-btn" aria-label="Search">
+          <i class="fas fa-search" aria-hidden="true"></i>
         </button>
       </form>
     </div>
-          <div class="hero-cta">
-            <a href="#about" class="btn btn-primary">
-              <i class="fa-solid fa-rocket"></i> Get Started
+          <div class="hero-cta" role="group" aria-label="Main actions">
+            <a href="#about" class="btn btn-primary" aria-describedby="get-started-desc">
+              <i class="fa-solid fa-rocket" aria-hidden="true"></i> Get Started
             </a>
-            <a href="#animal" class="btn btn-secondary">
-              <i class="fa-solid fa-play"></i> Learn More
+            <div id="get-started-desc" class="sr-only">Begin your journey to protect the environment and animals</div>
+            <a href="#animal" class="btn btn-secondary" aria-describedby="learn-more-desc">
+              <i class="fa-solid fa-play" aria-hidden="true"></i> Learn More
             </a>
+            <div id="learn-more-desc" class="sr-only">Discover more about animal protection and environmental conservation</div>
           </div>
 
-          <div class="hero-features">
-            <div class="hero-feature">
-              <i class="fa-solid fa-paw"></i>
+          <div class="hero-features" role="list" aria-label="Key features">
+            <div class="hero-feature" role="listitem">
+              <i class="fa-solid fa-paw" aria-hidden="true"></i>
               <span>Animal Rescue</span>
             </div>
-            <div class="hero-feature">
-              <i class="fa-solid fa-tree"></i>
+            <div class="hero-feature" role="listitem">
+              <i class="fa-solid fa-tree" aria-hidden="true"></i>
               <span>Plant Trees</span>
             </div>
-            <div class="hero-feature">
-              <i class="fa-solid fa-recycle"></i>
+            <div class="hero-feature" role="listitem">
+              <i class="fa-solid fa-recycle" aria-hidden="true"></i>
               <span>Reduce Waste</span>
             </div>
           </div>
@@ -1584,6 +1594,7 @@
   <script src="js/utils/dom-cache.js"></script>
   <script src="js/utils/performance-fixes.js"></script>
   <script src="js/utils/responsive-images.js"></script>
+  <script src="js/utils/accessibility-manager.js"></script>
   
   <!-- Performance monitoring (load first) -->
   <script src="js/global/performance-monitor.js"></script>
