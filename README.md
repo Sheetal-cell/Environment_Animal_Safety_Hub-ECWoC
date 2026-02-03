@@ -132,6 +132,8 @@ _Thanks to everyone supporting this initiative!_ 💚
 ---
 
 ## 🚀 Future Enhancements
+For a detailed roadmap of planned features for v2.0, see [ROADMAP.md](ROADMAP.md).
+
 - Admin dashboard to manage content
 - User login & save quiz score feature
 - Animations & interactive infographics
